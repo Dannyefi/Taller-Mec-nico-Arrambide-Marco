@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánica Arrambide Marcos | San Isidro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#123B5D',
+                            darkBlue: '#0b263d',
+                            red: '#D62828',
+                            redHover: '#b81d1d',
+                            grayLight: '#F2F2F2',
+                            grayDark: '#333333'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(18, 59, 93, 0.93) 0%, rgba(11, 38, 61, 0.96) 100%),
+                        url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+        }
+        .pattern-grid {
+            background-image: radial-gradient(#123B5D 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-brand-grayDark antialiased selection:bg-brand-red selection:text-white">
+
+    <div class="bg-brand-darkBlue text-gray-200 text-xs sm:text-sm py-2 px-4 border-b border-blue-900/50">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-red"></i> Calle El Verode, San Isidro</span>
+                <span class="hidden md:inline text-gray-500">|</span>
+                <span class="flex items-center gap-1.5"><i class="fa-regular fa-clock text-brand-red"></i> Lunes a Viernes: 8:00 - 18:00 hs</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:+34922123456" class="hover:text-white transition-colors flex items-center gap-1"><i class="fa-solid fa-phone text-xs"></i> +34 922 12 34 56</a>
+                <a href="https://wa.me/34600123456" target="_blank" class="text-green-400 font-semibold hover:text-green-300 transition-colors flex items-center gap-1">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Citas
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center text-white shadow-lg group-hover:bg-brand-red transition-colors duration-300">
+                        <i class="fa-solid fa-gear text-2xl absolute animate-spin-slow"></i>
+                        <i class="fa-solid fa-wrench text-lg z-10"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-black tracking-tight text-brand-blue leading-none">MECÁNICA</span>
+                        <span class="block text-xs font-bold tracking-widest text-brand-red uppercase">Arrambide Marcos</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-gray-700">
+                    <a href="#inicio" class="hover:text-brand-red transition-colors py-1">Inicio</a>
+                    <a href="#servicios" class="hover:text-brand-red transition-colors py-1">Servicios</a>
+                    <a href="#calculadora" class="hover:text-brand-red transition-colors py-1">Calculadora</a>
+                    <a href="#nosotros" class="hover:text-brand-red transition-colors py-1">Por Qué Elegirnos</a>
+                    <a href="#resenas" class="hover:text-brand-red transition-colors py-1">Opiniones</a>
+                    <a href="#contacto" class="hover:text-brand-red transition-colors py-1">Ubicación</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/34600123456?text=Hola,%20quisiera%20pedir%20una%20cita%20para%20mi%20veh%C3%ADculo." target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-redHover text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Pedir Cita</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Inicio</a>
+            <a href="#servicios" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Servicios</a>
+            <a href="#calculadora" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Calculadora de Cita</a>
+            <a href="#nosotros" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Por Qué Elegirnos</a>
+            <a href="#resenas" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Opiniones</a>
+            <a href="#contacto" class="mobile-link block px-3 py-2 rounded-md font-semibold text-gray-700 hover:bg-brand-grayLight hover:text-brand-red">Ubicación y Contacto</a>
+            <a href="https://wa.me/34600123456?text=Hola,%20quisiera%20pedir%20una%20cita" target="_blank" class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-brand-red text-white px-5 py-3 rounded-xl font-bold text-center">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>Pedir Cita por WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero-bg text-white relative py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-red-300">
+                        <i class="fa-solid fa-shield-halved text-brand-red"></i> Taller Mecánico Especializado en San Isidro
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                        Mantenimiento y Reparación de <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">Confianza</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
+                        Soluciones profesionales, transparentes y rápidas para tu vehículo. Tu coche en manos de mecánicos expertos con tecnología de diagnóstico avanzada.
+                    </p>
+
+                    <!-- Core Value Pills -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-2 text-sm font-semibold">
+                        <div class="flex items-center gap-2 bg-brand-blue/80 px-4 py-2 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-circle-check text-brand-red"></i> Experiencia
+                        </div>
+                        <div class="flex items-center gap-2 bg-brand-blue/80 px-4 py-2 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-circle-check text-brand-red"></i> Confianza
+                        </div>
+                        <div class="flex items-center gap-2 bg-brand-blue/80 px-4 py-2 rounded-lg border border-white/10">
+                            <i class="fa-solid fa-circle-check text-brand-red"></i> Calidad
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/34600123456?text=Hola,%20me%20gustar%C3%ADa%20pedir%20una%20cita" target="_blank" class="bg-brand-red hover:bg-brand-redHover text-white px-8 py-4 rounded-xl font-bold text-base shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Solicitar Cita Inmediata</span>
+                        </a>
+                        <a href="#calculadora" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-8 py-4 rounded-xl font-bold text-base transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            <span>Calcular Presupuesto</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Hero Card / Status Banner -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white text-brand-grayDark rounded-2xl p-6 sm:p-8 shadow-2xl border border-gray-100 relative">
+                        <div class="absolute -top-3 right-6 bg-brand-red text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                            Atención Directa
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-4 border-b border-gray-100 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-wrench text-brand-red"></i> ¿Tu coche necesita revisión?
+                        </h3>
+                        <p class="text-sm text-gray-600 mb-6">
+                            Visítanos sin compromiso en nuestra sede principal de San Isidro para una inspección visual previa.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 bg-brand-grayLight p-3.5 rounded-xl">
+                                <i class="fa-solid fa-map-pin text-brand-red text-xl mt-0.5"></i>
+                                <div>
+                                    <strong class="block text-xs text-gray-500 uppercase font-bold">Dirección Taller</strong>
+                                    <span class="text-sm font-bold text-brand-blue">Calle El Verode, San Isidro</span>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 bg-brand-grayLight p-3.5 rounded-xl">
+                                <i class="fa-solid fa-phone text-brand-blue text-xl mt-0.5"></i>
+                                <div>
+                                    <strong class="block text-xs text-gray-500 uppercase font-bold">Teléfono Fijo</strong>
+                                    <span class="text-sm font-bold text-brand-blue">+34 922 12 34 56</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://maps.google.com/?q=Calle+El+Verode+San+Isidro" target="_blank" class="w-full mt-6 bg-brand-blue hover:bg-brand-darkBlue text-white font-bold py-3 px-4 rounded-xl text-center text-sm transition-colors block">
+                            <i class="fa-solid fa-route mr-2"></i> Abrir Ubicación en GPS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-extrabold text-xs uppercase tracking-widest bg-red-100 px-3 py-1 rounded-full">Especialidades</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-3">Servicios Mecánicos Integrales</h2>
+                <p class="text-gray-600 mt-3 text-base">
+                    Mantenimiento preventivo y correctivo con los más altos estándares de calidad técnica en San Isidro.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Diagnóstico Computarizado</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Scanner de última generación para la detección precisa de fallos electrónicos, sensores, motor y caja de cambios.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Borrado de testigos de error</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Lectura en tiempo real de parámetros</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Sistema de Frenos y ABS</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Sustitución de pastillas, discos de freno, líquido hidráulico y revisión completa de seguridad del circuito ABS.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Repuestos homologados</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Purga de circuito hidráulico</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Suspensiones y Dirección</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Cambio de amortiguadores, muelles, rótulas de dirección y alineación para garantizar confort y estabilidad.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Eliminación de ruidos y holguras</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Mayor estabilidad en curva</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-car-battery"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Baterías y Electricidad</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Comprobación del alternador, reemplazo de baterías de primera calidad y reparación del sistema de arranque.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Baterías con garantía</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Diagnóstico de consumo eléctrico</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-oil-can"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Mantenimiento e ITV</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Cambio de aceite, filtros (aceite, aire, polen, combustible) y revisión Pre-ITV completa para pasar a la primera.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Lubricantes sintéticos recomendados</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Chequeo de 25 puntos clave</li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 group hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-brand-blue text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6">
+                        <i class="fa-solid fa-gears"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-blue mb-3">Motores y Kit Distribución</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                        Sustitución de correa o cadena de distribución, bomba de agua y reparación de componentes mecánicos del motor.
+                    </p>
+                    <ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Prevención de averías graves</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> Componentes de alta durabilidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculadora" class="py-20 bg-brand-blue text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full border border-white/20">Herramienta Interactiva</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mt-3">Calculadora de Cita y Presupuesto</h2>
+                <p class="text-gray-300 mt-2 text-sm">
+                    Selecciona tu vehículo y los servicios requeridos para calcular una estimación orientativa y enviarla directamente por WhatsApp.
+                </p>
+            </div>
+
+            <div class="bg-white text-brand-grayDark rounded-3xl p-6 sm:p-10 shadow-2xl">
+                <form id="calculatorForm" onsubmit="event.preventDefault(); sendWhatsAppEstimate();">
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-brand-blue mb-2">Marca del Vehículo</label>
+                            <input type="text" id="carBrand" placeholder="Ej: Volkswagen, Toyota, Ford..." required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-brand-blue mb-2">Modelo y Año</label>
+                            <input type="text" id="carModel" placeholder="Ej: Golf 2018, Hilux 2020..." required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm">
+                        </div>
+                    </div>
+
+                    <label class="block text-xs font-bold uppercase text-brand-blue mb-3">Selecciona los Servicios Necesarios</label>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="50" data-name="Diagnóstico Electrónico" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Diagnóstico Electrónico</span>
+                                <span class="text-xs text-gray-500">Estimado: Desde 50€</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="90" data-name="Mantenimiento de Aceite y Filtros" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Cambio Aceite y Filtros</span>
+                                <span class="text-xs text-gray-500">Estimado: Desde 90€</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="110" data-name="Cambio Pastillas de Freno" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Pastillas de Freno</span>
+                                <span class="text-xs text-gray-500">Estimado: Desde 110€</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="85" data-name="Sustitución de Batería" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Cambio de Batería</span>
+                                <span class="text-xs text-gray-500">Estimado: Desde 85€</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="45" data-name="Revisión Pre-ITV" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Revisión Pre-ITV</span>
+                                <span class="text-xs text-gray-500">Estimado: Desde 45€</span>
+                            </div>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" value="0" data-name="Otra consulta o reparación general" class="service-checkbox w-5 h-5 text-brand-red rounded focus:ring-brand-red">
+                            <div class="text-sm">
+                                <span class="font-bold block text-brand-blue">Avería o Ruido Extraño</span>
+                                <span class="text-xs text-gray-500">Presupuesto a revisar</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- Estimate summary -->
+                    <div class="bg-brand-grayLight p-6 rounded-2xl flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+                        <div>
+                            <span class="block text-xs uppercase font-bold text-gray-500">Total Estimado Aproximado</span>
+                            <span id="totalEstimate" class="text-3xl font-black text-brand-blue">0 €</span>
+                            <span class="block text-xs text-gray-400 font-medium mt-0.5">*Sujeto a verificación técnica previa en taller</span>
+                        </div>
+                        <button type="submit" class="w-full sm:w-auto bg-brand-red hover:bg-brand-redHover text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Enviar Solicitud por WhatsApp</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-brand-red font-bold text-xs uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full">Garantía de Servicio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-3 mb-6">
+                        ¿Por qué elegir Mecánica Arrambide Marcos en San Isidro?
+                    </h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Entendemos la importancia de contar con un vehículo seguro y eficiente. Nuestro compromiso es brindarte un trato transparente, explicándote cada detalle de tu reparación sin sorpresas.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-xl shrink-0">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand-blue">Presupuestos Transparentes</h4>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Aprobación previa antes de realizar cualquier trabajo en tu vehículo. Sin costes ocultos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-xl shrink-0">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand-blue">Mecánicos Cualificados</h4>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Años de experiencia demostrable en reparación multimarca, utilizando componentes de alta durabilidad.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center text-brand-blue font-bold text-xl shrink-0">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand-blue">Atención Cercana e Inmediata</h4>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Estamos ubicados en Calle El Verode, San Isidro. Respuestas rápidas para la gestión de tus citas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?q=80&w=1200&auto=format&fit=crop" alt="Taller Mecanico Trabajo Profesional" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-brand-red text-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs">
+                        <span class="block text-3xl font-black mb-1">100%</span>
+                        <span class="text-xs font-semibold">Compromiso con la seguridad de tu vehículo en cada mantenimiento.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resenas" class="py-20 bg-gray-50 border-t border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-bold text-xs uppercase tracking-widest bg-red-100 px-3 py-1 rounded-full">Opiniones Reales</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-blue mt-3">Lo que dicen nuestros clientes</h2>
+                <p class="text-gray-600 mt-2 text-sm">Conductores de San Isidro que confían diariamente en nosotros.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">
+                            "Llevé mi coche para la revisión pre-ITV y cambio de frenos. Excelente atención por parte de Marcos, me explicaron todo claramente y el coche quedó impecable."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold">
+                            CR
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-brand-blue">Carlos Rodríguez</span>
+                            <span class="text-xs text-gray-400">Vecino de San Isidro</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">
+                            "Tenía un fallo eléctrico que en otros talleres no lograban diagnosticar. Aquí en Calle El Verode me lo detectaron el mismo día. Súper profesionales."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-red text-white rounded-full flex items-center justify-center font-bold">
+                            MG
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-brand-blue">María González</span>
+                            <span class="text-xs text-gray-400">Cliente Frecuente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-3">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">
+                            "Rapidez, buen trato y precios razonables. Es muy cómodo poder agendar la cita directamente por WhatsApp. Recomendados al 100%."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-700 text-white rounded-full flex items-center justify-center font-bold">
+                            JH
+                        </div>
+                        <div>
+                            <span class="block text-sm font-bold text-brand-blue">Javier Hernández</span>
+                            <span class="text-xs text-gray-400">San Isidro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Location Details -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-red font-bold text-xs uppercase tracking-widest bg-red-100 px-3 py-1 rounded-full">Ubicación y Contacto</span>
+                        <h2 class="text-3xl font-extrabold text-brand-blue mt-3">Ven a Visitar Nuestro Taller</h2>
+                        <p class="text-gray-600 text-sm mt-2">Estamos listos para atender cualquier necesidad de tu coche.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-red-50 text-brand-red flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue text-sm">Dirección</h4>
+                                <p class="text-sm text-gray-600">Calle El Verode, San Isidro</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue text-sm">Horario de Atención</h4>
+                                <p class="text-sm text-gray-600">Lunes a Viernes: 08:00 - 18:00 hs</p>
+                                <p class="text-xs text-gray-400">Sábados y Domingos: Cerrado</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0 text-lg">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-blue text-sm">Teléfono / WhatsApp</h4>
+                                <p class="text-sm text-gray-600">+34 922 12 34 56 / +34 600 12 34 56</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct map card representation -->
+                    <div class="p-4 bg-brand-grayLight rounded-2xl border border-gray-200">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="block text-xs font-bold text-gray-500 uppercase">¿Necesitas llegar rápido?</span>
+                                <span class="text-sm font-bold text-brand-blue">Abre las indicaciones en tu GPS</span>
+                            </div>
+                            <a href="https://maps.google.com/?q=Calle+El+Verode+San+Isidro" target="_blank" class="bg-brand-blue hover:bg-brand-darkBlue text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-colors">
+                                Abrir Mapa
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Direct Contact Form -->
+                <div class="lg:col-span-7 bg-gray-50 p-8 rounded-3xl border border-gray-200 shadow-sm">
+                    <h3 class="text-xl font-bold text-brand-blue mb-2">Envíanos un Mensaje Directo</h3>
+                    <p class="text-sm text-gray-600 mb-6">Rellena los datos y te responderemos a la brevedad para confirmar tu cita.</p>
+
+                    <form id="contactForm" onsubmit="event.preventDefault(); handleContactSubmit();" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-brand-blue uppercase mb-1">Nombre Completo</label>
+                                <input type="text" id="contactName" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-brand-blue uppercase mb-1">Teléfono</label>
+                                <input type="tel" id="contactPhone" required placeholder="Ej: 600000000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-blue uppercase mb-1">Matrícula o Modelo del Coche</label>
+                            <input type="text" id="contactCar" placeholder="Ej: Renault Megane 1234ABC" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm bg-white">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-brand-blue uppercase mb-1">Mensaje / Consulta</label>
+                            <textarea id="contactMessage" rows="4" required placeholder="Escribe aquí tu consulta o el problema que presenta tu vehículo..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm bg-white"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-blue hover:bg-brand-darkBlue text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-regular fa-paper-plane"></i>
+                            <span>Enviar Mensaje</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-darkBlue text-gray-300 py-12 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-red rounded-lg flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <span class="text-lg font-black text-white">MECÁNICA</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Taller Mecánica Arrambide Marcos. Tu centro de reparación y mantenimiento de confianza en San Isidro. Experiencia, calidad y compromiso.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 border-b border-gray-700 pb-2">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios Mecánicos</a></li>
+                        <li><a href="#calculadora" class="hover:text-white transition-colors">Calculadora Presupuesto</a></li>
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Por Qué Elegirnos</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 border-b border-gray-700 pb-2">Ubicación</h4>
+                    <p class="text-xs text-gray-400">Calle El Verode, San Isidro</p>
+                    <p class="text-xs text-gray-400 mt-2">Atención de Lunes a Viernes de 8:00 a 18:00 hs</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase mb-4 border-b border-gray-700 pb-2">Contacto Directo</h4>
+                    <p class="text-xs text-gray-400">Telf: +34 922 12 34 56</p>
+                    <p class="text-xs text-gray-400">WhatsApp: +34 600 12 34 56</p>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
+                <p>&copy; 2026 Taller Mecánica Arrambide Marcos. Todos los derechos reservados. San Isidro.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Calculator Logic
+        const checkboxes = document.querySelectorAll('.service-checkbox');
+        const totalEstimateEl = document.getElementById('totalEstimate');
+
+        checkboxes.forEach(chk => {
+            chk.addEventListener('change', calculateTotal);
+        });
+
+        function calculateTotal() {
+            let total = 0;
+            checkboxes.forEach(chk => {
+                if (chk.checked) {
+                    total += parseFloat(chk.value);
+                }
+            });
+            totalEstimateEl.textContent = `${total} €`;
+        }
+
+        function sendWhatsAppEstimate() {
+            const carBrand = document.getElementById('carBrand').value;
+            const carModel = document.getElementById('carModel').value;
+            const selectedServices = [];
+
+            checkboxes.forEach(chk => {
+                if (chk.checked) {
+                    selectedServices.push(chk.dataset.name);
+                }
+            });
+
+            if (selectedServices.length === 0) {
+                alert('Por favor selecciona al menos un servicio para enviar la consulta.');
+                return;
+            }
+
+            const total = totalEstimateEl.textContent;
+            const message = `Hola Taller Mecánica Arrambide Marcos! Quisiera pedir cita para mi vehículo %0A- Vehículo: ${carBrand} ${carModel}%0A- Servicios solicitados: ${selectedServices.join(', ')}%0A- Estimado aproximado: ${total}`;
